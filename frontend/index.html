@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServerTrack — Infrastructure Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <span class="logo">⚡ ServerTrack</span>
+            <span class="subtitle">Infrastructure Inventory System</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <h3 id="total-count">0</h3>
+                <p>Total Servers</p>
+            </div>
+            <div class="stat-card running">
+                <h3 id="running-count">0</h3>
+                <p>Running</p>
+            </div>
+            <div class="stat-card stopped">
+                <h3 id="stopped-count">0</h3>
+                <p>Stopped</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <h2>Server Inventory</h2>
+            <button class="btn btn-primary" onclick="openModal()">+ Add Server</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Environment</th>
+                        <th>Type</th>
+                        <th>IP Address</th>
+                        <th>Region</th>
+                        <th>Team</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="server-table"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h2 id="modal-title">Add Server</h2>
+            <form id="server-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label>Server Name</label>
+                    <input type="text" id="server_name" placeholder="web-prod-01" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Environment</label>
+                        <select id="environment" required>
+                            <option value="production">Production</option>
+                            <option value="staging">Staging</option>
+                            <option value="development">Development</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Instance Type</label>
+                        <input type="text" id="instance_type" placeholder="t3.medium" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>IP Address</label>
+                        <input type="text" id="ip_address" placeholder="10.0.1.25" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Region</label>
+                        <select id="region" required>
+                            <option value="us-east-1">us-east-1</option>
+                            <option value="us-west-2">us-west-2</option>
+                            <option value="eu-west-1">eu-west-1</option>
+                            <option value="ap-southeast-1">ap-southeast-1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Team</label>
+                        <input type="text" id="team" placeholder="platform" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="status">
+                            <option value="running">Running</option>
+                            <option value="stopped">Stopped</option>
+                            <option value="terminated">Terminated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
