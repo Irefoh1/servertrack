@@ -1,5 +1,5 @@
 // REPLACE THIS with your API Gateway Invoke URL
-const API_URL = 'https://atoc7ryejb.execute-api.us-east-1.amazonaws.com/prod';
+const API_URL = 'https://your-api-url.us-east-1.amazonaws.com/prod';
 
 let servers = [];
 
